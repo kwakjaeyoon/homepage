@@ -1,0 +1,20 @@
+.navbar{
+    z-index:1;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:#000000;
+}
+
+
+.create{
+    width:500px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.create h2{
+    text-align:center;
+    
+}

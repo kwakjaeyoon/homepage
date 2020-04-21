@@ -1,0 +1,57 @@
+.navbar{
+    z-index:1;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:#000000;
+}
+
+
+.content{
+    z-index:2;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.content h3 {
+    margin-top:0px;
+    color: steelblue;
+}
+
+.content p{
+    text-align:center;
+    height:20%;
+    margin-bottom: 5%;
+}
+hr{
+    text-align: left;
+    margin-left: 0px;
+    border-color:steelblue;
+    margin-bottom: 10%;
+    width :200px;
+}
+
+.con{
+    z-index:2;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.con h3 {
+    margin-top:0px;
+    color: steelblue;
+}
+
+.con p{
+    text-align:center;
+    height:20%;
+    margin-bottom: 5%;
+}
+
+.page-footer{
+    margin-top: 75%;
+    margin-left: 20%;
+    margin-right: 20%;
+    z-index:2;
+}

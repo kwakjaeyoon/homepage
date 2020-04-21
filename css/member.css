@@ -1,0 +1,26 @@
+.navbar{
+    z-index:1;
+    margin-bottom:0px;
+}
+
+
+.navbar a{
+    color:#000000;
+}
+
+.content{
+    margin-top:10%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.content h3{
+    text-align:center;
+    
+}
+.content p{
+    text-align:center;
+}
+
+.row{
+    margin-top:100px;
+}

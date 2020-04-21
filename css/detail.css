@@ -1,0 +1,34 @@
+.navbar{
+    z-index:1;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:#000000;
+}
+
+h3{
+    text-align:center;
+    margin-top:10%;
+    width:60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+ /* .table{
+    width:500px;
+    margin-left:auto;
+    margin-right:auto;
+}  */
+
+.table td{
+    height:300px;  
+}
+
+.butt{
+    margin-top:10%;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}

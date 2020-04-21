@@ -1,0 +1,35 @@
+.navbar{
+    z-index:1;
+    margin-bottom:0px;
+}
+
+.navbar a{
+    color:#000000;
+}
+
+
+.content{
+    z-index:2;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.content h3 {
+    margin-top:0px;
+    color: steelblue;
+}
+
+hr{
+    text-align: left;
+    margin-left: 0px;
+    border-color:steelblue;
+    margin-bottom: 10%;
+    width :200px;
+}
+
+.page-footer{
+    margin-top: 75%;
+    margin-left: 20%;
+    margin-right: 20%;
+    z-index:2;
+}
