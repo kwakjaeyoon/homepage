@@ -24,40 +24,39 @@ router.use('/',session({
     saveUninitialized:true
 }));
 
-router.use(express.static(__dirname +'/')); 
 
-router.get("/login.html",function(req,res){
-    var main=fs.readFileSync('html/login.html','utf8');
+
+router.get("/admin.html",function(req,res){
+    var main=fs.readFileSync('html/admin.html','utf8');
     res.send(main);
-    console.log("login page");
+    console.log("admin page");
 });
 
-router.post("/login",function(req,res){
+
+ router.post("/admin",function(req,res){
     var username=req.body.username;
     var password=req.body.password;
+    var auth="Admin";
     if(username&&password){
-        connection.query('select *from login where id=? and password=? ',[username,sha256(password)],function(err,rows){
+        connection.query('select *from login where id=? and password=? and auth=? ',[username,sha256(password),auth],function(err,rows){
             if(rows.length>0){
+                if(auth=="Admin"){
                 req.session.loggedin =true;
                 req.session.name=username;
                 global.id=req.session.name;
-                req.session.admin="user";
+                req.session.admin="admin";
                 global.auth=req.session.admin;
                 console.log(id);
                 console.log(req.session);
                  res.redirect('/');
-            }else{
-                res.send('<script>alert("아이디 또는 비밀번호가 잘못되었습니다.");location.href="/cite.html"</script>');
             }
-            res.end();
-        });
+        }else{
+        res.send('<script>alert("관리자 권한이 없는 계정입니다.");location.href="/cite.html"</script>');
+        }}); 
      }else{
             res.send('<script>alert("입력해주세요.");location.href="/cite.html"</script>')
         }
-
-
-       
-
+    }); 
 
         router.get("/logout",function(req,res){
             req.session.destroy();
@@ -65,7 +64,12 @@ router.post("/login",function(req,res){
              console.log("logout success");
              
         });
-    
-});
 
-module.exports = router;
+
+ 
+
+        
+    
+    
+
+    module.exports = router;

@@ -55,12 +55,20 @@
 		<table>
 
 			<tr>
-				<td>작성자</td>                                                                              <!-- required는 반드시  적어야 submit됨 -->
+				<td>작성자</td>                                                                              
 				<td><input type="text" class="form-control" name="username" placeholder="name" value=<%=id%> /readonly></td>
 			</tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" class="form-control"name="title" placeholder="title" required/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<label><input type="radio" name="category"  value="notice"> 공지</label>
+					<label><input type="radio" name="category"  value="project"> 프로젝트</label>
+					<label><input type="radio" name="category"  value="other"> 기타</label>
+				</td>
 			</tr>
 			<tr>
 				<td></td>

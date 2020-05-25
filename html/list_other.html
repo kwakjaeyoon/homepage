@@ -2,7 +2,7 @@
 <html lang="Ko">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-<title>게시글 읽기</title>
+<title>검색결과</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 <link href="/../css/read.css" rel="stylesheet" type="text/css"/>
 </head>
@@ -49,14 +49,11 @@
 	  </nav>
   
   <div class="title">
-	<h1>게시판</h1>
+    <h1>기타</h1>
   </div>
-
-
-  
  
 	<table class="table table-dark ">
-		   <thead>  
+		   <thead>
 			<tr>
 				<th colspan="3">
 					<div class="btn-group">
@@ -72,10 +69,12 @@
 						</div>
 				</th>
 				<th></th>
+				<th></th>
+				<th></th>
 				<th><input type="button" class="btn btn-info" value="게시글작성" style="float:right; font-size: 9px;" onClick="location.href = '/board/write'"></th>
 			</tr>
 			<tr>
-                <th>번호</th>
+				<th>번호</th>
                 <th>제목</th>
                 <th>작성자</th>
 				<th>작성일</th>
@@ -84,38 +83,25 @@
 		</thead>
     
 		<tbody>
-			<% for(var i=(page*page_num)-page_num; i<(page*page_num); i++){
-                if(i>length){ i++; }
-                else{ %>
-            <tr>
-                <td><%=i+1%></td>
-                <td><a href='/board/detail/<%=i+1%>/<%=rows[i].order%>'><%=rows[i].title%></a></td>    
+			<% for(var i=0;i<rows.length;i++){ %>
+                <% if(rows[i].category==="other"){ %>
+            <tr> 
+				<td><%=i+1%></td>
+                <td><a href='/board/detail/<%=i+1%>'><%=rows[i].title%></a></td>    
 				<td><%=rows[i].username%></td>
 				<td><%=rows[i].date%></td>
 				<td><%=rows[i].updat%></td>
-            </tr>
-          <% } 
-        }%> 
-        <tr>
-            <td colspan="5" style="text-align:center;">
-                <% for(var j=0; j<(rows.length/page_num); j++){ %>
-                    [<a href="/board/list/<%=j+1%>"><%=j+1%></a>]   
-                <% } %>
-			</td>
-        </tr>
+            </tr> 
+            <% } %>  
+		  <% } %> 
 		</tbody>
     </table>
 
     <div class="search">
-        <form action="/board/search">
+        <form action="#">
         <input type="text" placeholder="Search.." name="search">
-		<button type="submit" class="btn btn-info">검색</button>
-		</form>
-	</div>  
-
-
-	
-
+        <button type="submit" class="btn btn-info">검색</button>
+    </div>  
     
 
 	

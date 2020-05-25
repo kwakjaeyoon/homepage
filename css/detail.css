@@ -32,3 +32,25 @@ h3{
     margin-left:auto;
     margin-right:auto;
 }
+
+.write{
+    margin-top:10%;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+hr{
+    text-align: left;
+    margin-left: 0px;
+    border-color:black;
+}
+
+.comment{
+    margin-top:10%;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
