@@ -48,12 +48,15 @@ connection.connect(function(err){
             res.send('<script>alert("로그인 해주세요.");location.href="/login.html"</script>');
         }else{
         var sql="select *from lab.login where `id`=? ;";
+        var sql2="select *from lab.category;";
+        connection.query(sql2,function(err,rows2){
         connection.query(sql,[id],function(err,rows){
             if(err) console.log(err);
             console.log(id);
-            res.render('../html/create_out.html',{rows:rows,id:id} );
+            res.render('../html/create_out.html',{rows:rows,rows2:rows2,id:id} );
             console.log("write page");
         });
+    });
     }
     });
         
@@ -66,11 +69,7 @@ router.post('/write',upload.single('file'),function(req,res){
     var username=req.body.username;
     var title=req.body.title;
     var content=req.body.content;
-<<<<<<< HEAD
     var date= newDate.toFormat('YYYY-MM-DD HH24 MI');
-=======
-    var date= newDate.toFormat('YYYY-MM-DD HH24:MI');
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
     var category=req.body.category;
     var sql='INSERT INTO info  VALUES(?,?,?,?,?,?,?,?);';
     var param=[order,username,title,content,date,null,null,category];
@@ -79,13 +78,8 @@ router.post('/write',upload.single('file'),function(req,res){
         var username=req.body.username;
         var title=req.body.title;
         var content=req.body.content;
-<<<<<<< HEAD
         var file= req.file.originalname+ newDate.toFormat('YYYY-MM-DD HH24 MI');
         var date= newDate.toFormat('YYYY-MM-DD HH24 MI');
-=======
-        var file= req.file.originalname;
-        var date= newDate.toFormat('YYYY-MM-DD HH24:MI');
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
         var category=req.body.category;
         var sql='INSERT INTO info  VALUES(?,?,?,?,?,?,?,?);';
         var param=[order,username,title,content,date,null,file,category];
@@ -127,12 +121,8 @@ router.get('/list',function(req,res){
 });
 
 
-<<<<<<< HEAD
-router.get('/category/:cat_no/:page',function(req,res,next){
-=======
 
-router.get('/detail/:board_no/:order',function(req,res){
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
+router.get('/category/:cat_no/:page',function(req,res,next){
     if(!req.session.name){
         console.log("접속실패");
         res.send('<script>alert("로그인 해주세요.");location.href="/login.html"</script>');
@@ -143,7 +133,7 @@ router.get('/detail/:board_no/:order',function(req,res){
     content=req.body.content; 
     cat_no=req.params.cat_no;
     page=req.params.page;
-    var sql='select * from lab.info order by date desc;';
+    var sql='select * from lab.info ;';
     var sql2='select * from lab.category';
     connection.query(sql2,function(err,rows2){
         connection.query(sql,function(err,rows){
@@ -173,11 +163,8 @@ router.get('/detail/:board_no/:order',function(req,res){
     date= req.body.date;
     var board_no=req.params.board_no;
     var sql='select * from info';
-<<<<<<< HEAD
     var sql2='select *from comment  where `order`=?';
-=======
-    var sql2='select *from comment where `order`=?';
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
+
         connection.query(sql,[parseInt(board_no)],function(err,rows){
             connection.query(sql2,[parseInt(order)],function(err,result){
             if(err) console.log(err);
@@ -247,7 +234,7 @@ router.post('/:file/:username/:order/delete',function(req,res){
     var param=[order];
 
    
-<<<<<<< HEAD
+
         if(id==username ){
             connection.query(sql2 ,param,function(err,rows){
             connection.query(sql,param,function(err,rows){
@@ -256,14 +243,6 @@ router.post('/:file/:username/:order/delete',function(req,res){
             res.redirect('/board/list');
             console.log(rows.affectedRows);
             });
-=======
-        if(auth=="admin" || id==username ){
-            connection.query(sql,param,function(err,rows){
-            if(err) console.log(err);
-            fs.unlinkSync(file);
-            res.redirect('/board/list');
-            console.log(rows.affectedRows);
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
         }); 
         }else{
             res.send('<script>alert("삭제할 수 없습니다.");location.href="/board/list"</script>');
@@ -279,23 +258,12 @@ router.post('/:username/:order/delete',function(req,res){
     var sql2= 'delete from comment where `order`=?;';
     var param=[order];
 
-    
-<<<<<<< HEAD
         if( id==username ){
             connection.query(sql2 ,param,function(err,rows){
                 connection.query(sql ,param,function(err,result){
                  if(err) console.log(err);  
                 res.redirect('/board/list');
             }); 
-=======
-        if(auth=="admin" || id==username ){
-            connection.query(sql2 ,param,function(err,rows){
-                connection.query(sql ,param,function(err,result){
-                 if(err) console.log(err);
-                });  
-                if(err) console.log(err);  
-                res.redirect('/board/list');
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
         });
         }else{
             res.send('<script>alert("삭제할 수 없습니다.");location.href="/board/list"</script>');
@@ -420,54 +388,6 @@ router.get('/:id/:com_no/:order/comment/delete',function(req,res){
         res.send('<script>alert("삭제할 수 없습니다.");location.href="/board/list"</script>');
     }
 });
-
-<<<<<<< HEAD
-=======
-});
-
-router.get('/notice',function(req,res){
-    order=req.body.order;
-    username=req.body.username;
-    title=req.body.title;
-    content=req.body.content;
-    page=req.params.page;
-    var sel='select * from lab.info';
-    connection.query(sel,function(err,rows){
-        if(err) console.log(err);
-        res.render('../html/list_notice.html',{rows:rows});
-        console.log("notice page");
-        });
-});
-
-router.get('/project',function(req,res){
-    order=req.body.order;
-    username=req.body.username;
-    title=req.body.title;
-    content=req.body.content;
-    page=req.params.page;
-    var sel='select * from lab.info';
-    connection.query(sel,function(err,rows){
-        if(err) console.log(err);
-        res.render('../html/list_proj.html',{rows:rows});
-        console.log("proj page");
-        });
-});
-
-
-router.get('/other',function(req,res){
-    order=req.body.order;
-    username=req.body.username;
-    title=req.body.title;
-    content=req.body.content;
-    page=req.params.page;
-    var sel='select * from lab.info';
-    connection.query(sel,function(err,rows){
-        if(err) console.log(err);
-        res.render('../html/list_other.html',{rows:rows});
-        console.log("other page");
-        });
-
->>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
 });
 
 
