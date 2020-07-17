@@ -13,14 +13,12 @@ h3{
     width:60%;
     margin-left:auto;
     margin-right:auto;
+    font-weight: bolder;
 }
 
-
- /* .table{
-    width:500px;
-    margin-left:auto;
-    margin-right:auto;
-}  */
+.table{
+    border: inherit;
+}
 
 .table td{
     height:300px;  
@@ -32,3 +30,46 @@ h3{
     margin-left:auto;
     margin-right:auto;
 }
+
+.write{
+    margin-top:10%;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+hr{
+    text-align: left;
+    margin-left: 0px;
+    border-color:black;
+}
+
+.comment{
+    margin-top:10%;
+    width:50%;
+    margin-left:auto;
+    margin-right:auto;
+    
+}
+
+footer {
+    padding: 50px 0 65px;
+    
+  }
+
+  footer > a {
+   width: 100px;
+    height: 100px;
+  } 
+  
+  footer .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+

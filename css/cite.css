@@ -3,56 +3,93 @@
 .navbar{
     z-index:1;
     margin-bottom:0px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar a{
-    color:#000000;
+    color:#ffffff;
 }
 
 
-.photo{
-    width:1000px;
-    height:500px;
-    margin-bottom: 10%;
-    
-}
-.photo img{
-    z-index: 0;
-    position:absolute;
-    top:0;
-    
+header.masthead{
     width:100%;
-    height:60%;
+    height:600px;
+    margin-bottom: 10%;
+    z-index: 0;
+    position: relative;
+    top:0;
+}
+
+.img{
+    width:100%;
+    height:600px;
+    background-position: center;
+}
+.container {
+    z-index: 1;
+    position: absolute;
+    width:100%;
+    top:40%;
+    text-align: center;
+    color: gray;
+  }
+
+  .text{
+    font-size:70px;
+  }
+
+
+
+
+
+.content{
+    width:60%;
+    margin-left:20%;
+    margin-right: 0;
+    margin-bottom: 50px;
+}
+
+.content > .post > .post-title{
+    font-size: 30px;
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content > .post > .post-meta{
+    margin-bottom: 50px;
+    color: #888888;
+    font-style: italic;
+}
+
+.content > .post > a{
+    font-size: 17px;
+    font-style: inherit;
+    width: 100px;
+    height: 40px;
+    border-top: 10px;
 }
 
 
 
-.content h2{
-    text-align:center;
-}
-.content h4{
-    margin-left:25%;
-}
-.content p{
-    margin-left:25%;
-    margin-bottom:20px;
-}
+footer {
+    padding: 50px 0 65px;
+    
+  }
 
-.con{
-    margin-bottom: 20%;
-}
-.con h2{
-    margin-top: 20%;
-    text-align:center;
-}
-.con h4{
-    margin-left:25%;
-}
-.con p{
-    margin-left:25%;
-    margin-bottom:20px;
-}
-
+  footer > a {
+   width: 100px;
+    height: 100px;
+  } 
+  
+  footer .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<title>ICS-LAB</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link href="../css/admin_create.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+	  <% if(table=="user"){ %>
+      <div class="create">
+	  <form action="/write/user" method="post" >
+		<h2>사용자추가</h2>
+		<table>
+			<tr>
+				<td>ID</td>                                                                              
+				<td><input type="text" class="form-control" name="id" placeholder="name"></td>
+			</tr>
+			<tr>
+				<td>pwd</td>
+				<td><input type="text" class="form-control"name="pwd" placeholder="pwd" ></td>
+            </tr>
+            <tr>
+				<td>권한</td>
+				<td><input type="text" class="form-control"name="auth" placeholder="auth" ></td>
+            </tr>
+            <tr>
+				<td>이름</td>
+				<td><input type="text" class="form-control"name="name" placeholder="name" ></td>
+            </tr>
+            <tr>
+				<td colspan="2">
+                    <button class="btn-btn" style="float: right;" href="/admin.html">뒤로가기</button>
+                    <button class="submit" style="float: right;">추가</button>
+                </td>
+            </tr>
+		</table>
+	</form>
+</div>
+<% } else if(table=="category"){%>
+<div class="create">
+    <form action="/write/category" method="post" >
+      <h2>카테고리추가</h2>
+      <table>
+          <tr>
+              <td>번호</td>                                                                              
+              <td><input type="text" class="form-control" name="cat_num" placeholder="num"></td>
+          </tr>
+          <tr>
+              <td>카테고리</td>
+              <td><input type="text" class="form-control"name="category" placeholder="categrty" ></td>
+          </tr>
+          <tr>
+              <td colspan="2">
+                  <button class="btn-btn" style="float: right;" href="/admin.html">뒤로가기</button>
+                  <button class="submit" style="float: right;">추가</button>
+              </td>
+          </tr>
+      </table>
+  </form>
+</div>
+<% } else; %>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>
+</html> 

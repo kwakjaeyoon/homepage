@@ -15,9 +15,10 @@ app.engine('html',require('ejs').renderFile);
 
 
 
-var home=require('./route/main');
+var home=require('./route/index');
 var board=require('./route/board')(app);
 var login=require('./route/login');
+var admin=require('./route/admin');
 
 
 
@@ -25,6 +26,8 @@ var login=require('./route/login');
 app.use('/',home);
 app.use('/board',board);
 app.use('/',login);
+app.use('/',admin);
+
 
 
 

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<title>ICS-LAB</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link href="../css/admin.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+ <h1>관리자 외 접근금지</h1>   
+
+ <h3>사용자</h3>
+ <button class="btn" style="float: right;" onclick="location.href='/write/user' ">추가</button>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>pwd</th>
+        <th>권한</th>
+        <th>이름</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% for(var i=0;i<rows.length;i++){ %>
+    <tbody>
+      <tr>
+        <td><%=rows[i].id%></td>        
+        <td><%=rows[i].password%></td>
+        <td><%=rows[i].auth%></td>
+        <td><%=rows[i].name%></td>
+        <td class='butt'><button class="btn" style="float: right;"onclick="location.href='/delete/<%=rows[i].id%>' ">삭제</button></td>
+      </tr>
+    </tbody>
+    <% } %>
+  </table>
+
+
+  <h3>게시글</h3>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>게시자</th>
+          <th>제목</th>
+          <th>내용</th>
+          <th>게시일</th>
+          <th>수정일</th>
+          <th>파일</th>
+          <th>카테고리</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% for(var i=0;i<rows2.length;i++){ %>
+        <tbody>
+          <tr>
+            <td><%=rows2[i].order%></td>        
+            <td><%=rows2[i].username%></td>
+            <td><%=rows2[i].title%></td>
+            <td><%=rows2[i].content%></td>
+            <td><%=rows2[i].date%></td>        
+            <td><%=rows2[i].updat%></td>
+            <td><%=rows2[i].file%></td>
+            <td><%=rows2[i].cat_no%></td>
+            <% if(rows2[i].file !=null || rows2[i].file !=undefined){ %>)
+            <td class='butt'><button class="btn" style="float: right;"onclick="location.href='/delete/info/<%=rows2[i].file%>/<%=rows2[i].order%>' ">삭제</button></td>
+            <% }else { %>
+            <td class='butt'><button class="btn" style="float: right;"onclick="location.href='/delete/info/<%=rows2[i].order%>' ">삭제</button></td>
+            <% } %>
+          </tr>
+        </tbody>
+        <% } %>
+    </table>
+
+
+    <h3>댓글</h3>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>게시글번호</th>
+          <th>댓글</th>
+          <th>게시일</th>
+          <th>댓글번호</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% for(var i=0;i<rows3.length;i++){ %>
+        <tbody>
+          <tr>
+            <td><%=rows3[i].id%></td>        
+            <td><%=rows3[i].order%></td>
+            <td><%=rows3[i].comment%></td>
+            <td><%=rows3[i].com_date%></td>
+            <td><%=rows3[i].com_no%></td>
+            <td class='butt'><button class="btn" style="float: right;"onclick="location.href='/delete/comment/<%=rows3[i].com_no%>' ">삭제</button></td>
+          </tr>
+        </tbody>
+        <% } %>
+    </table>
+
+
+    <h3>카테고리</h3>
+    <button class="btn" style="float: right;"onclick="location.href='/write/category' ">추가</button>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>카테고리번호</th>
+            <th>카테고리</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% for(var i=0;i<rows4.length;i++){ %>
+            <tbody>
+              <tr>
+                <td><%=rows4[i].cat_num%></td>        
+                <td><%=rows4[i].category%></td>
+                <td class='butt'><button class="btn" style="float: right;"onclick="location.href='/delete/category/<%=rows4[i].cat_num%>'">삭제</button></td>
+              </tr>
+            </tbody>
+            <% } %>
+      </table>
+
+      <a href='/' style="float: right;">  메인페이지로  |</a>  <a href='/logout' style="float: right;"> |  로그아웃  | </a>
+
+
+</body>

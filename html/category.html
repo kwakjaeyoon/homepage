@@ -23,8 +23,8 @@
 		  </div>
 		  	<div class="collapse navbar-collapse" id="myNavbar">
 				<ul  style="margin-left:20%" class="nav navbar-nav navbar-right">
-				<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-			</ul>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
 			<ul class="nav navbar-nav ">
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" >연구실 <span class="caret"></span></a>
@@ -38,7 +38,7 @@
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" >게시판 <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="/board/listl">게시판</a></li>
+				  <li><a href="/board/list">게시판</a></li>
 				  <li><a href="/schedule.html">일정</a></li>
 				</ul>
 			  </li>
@@ -75,7 +75,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<% for(i=0; i<rows2.length; i++){ %>
-							<li><a tabindex="-1" href="/board/category/<%= rows2[i].cat_num %>/1"><%= rows2[i].category %></a></li>
+							<li><a tabindex="-1" href="/board/category/<%=rows2[i].cat_num %>/1"><%= rows2[i].category %></a></li>
 							<% } %>
 						</ul>
 						</div>
@@ -93,9 +93,8 @@
 		</thead>
     
 		<tbody>
-			<% for(var i=(page*page_num)-page_num; i<(page*page_num); i++){
-                if(i>length){ i++; }
-                else{ %>
+			<% for(var i=0;i<rows.length;i++){
+                    if(rows[i].cat_no==cat_no) {  %>
             <tr>
                 <td><%=i+1%></td>
                 <td><a href='/board/detail/<%=i+1%>/<%=rows[i].order%>'><%=rows[i].title%></a></td>    
@@ -103,15 +102,8 @@
 				<td><%=rows[i].date%></td>
 				<td><%=rows[i].updat%></td>
             </tr>
-          <% } 
+            <% }
         }%> 
-        <tr>
-            <td colspan="5" style="text-align:center;">
-                <% for(var j=0; j<(rows.length/page_num); j++){ %>
-                    [<a href="/board/list/<%=j+1%>"><%=j+1%></a>]   
-                <% } %>
-			</td>
-        </tr>
 		</tbody>
     </table>
 

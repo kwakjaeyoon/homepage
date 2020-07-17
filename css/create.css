@@ -13,11 +13,32 @@
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 100px;
 }
 .create h2{
     text-align:center;
     
 }
 
+footer {
+    padding: 50px 0 65px;
+    
+  }
+
+  footer > a {
+   width: 100px;
+    height: 100px;
+  } 
+  
+  footer .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 
 

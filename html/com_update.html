@@ -7,7 +7,7 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <title>ICS-LAB</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-<link href="/../css/read.css" rel="stylesheet" type="text/css"/>
+<link href="/../css/detail.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
 		  </div>
 		  	<div class="collapse navbar-collapse" id="myNavbar">
 				<ul  style="margin-left:20%" class="nav navbar-nav navbar-right">
-				<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				<li><a href="/login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</ul>
 			<ul class="nav navbar-nav ">
 			  <li class="dropdown">
@@ -38,7 +38,7 @@
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" >게시판 <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="/board/listl">게시판</a></li>
+				  <li><a href="/award.html">게시판</a></li>
 				  <li><a href="/schedule.html">일정</a></li>
 				</ul>
 			  </li>
@@ -48,84 +48,74 @@
 		</div>
 	  </nav>
 	
-	
-	
-
-	  <header class="masthead">
-		<img class="img" src="/../img/home-bg.jpg" >
-		<div class="container">
-		  <div class="row">
-			  <div class="page-heading">
-				<div class="text" style="color: #ffffff;">게시판</div>
-			  </div>
-		</div>
-	  </header>
+  
+    
+      
+	  <div class="butt">
+     		<table class="table">
+                    <h3>게시글 조회</h3>
+            <thead>
+                <tr>
+                    <th>제목</th>
+                    <th width="60%"><%=rows.title%></th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>번호</th>
+                    <th width="60%"><%=board_no%></th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <th>작성자</th>
+                    <th width="60%"><%=rows.username%></th>
+					<th>&nbsp;</th>
+				</tr>
+				<tr>
+                    <th>파일</th>
+                    <th width="60%"><a href='/board/<%=rows.file%>/download'><%=rows.file%></a></th>
+					<th>&nbsp;</th>
+				</tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td width="60%"><%=rows.content%></td>
+                    <td>&nbsp;</td>
+				</tr>
+            </tbody>
+		</table>
+            <a href="/board/update/<%=id%>/<%=board_no%>/<%=rows.order%>" type="button"><button class="btn btn-info">게시글수정</button></a>
+			<a href="/board/list" type="button"><button class="btn btn-info">뒤로가기</button></a>
+			<%if(file !==null || file !==undefined){ %>
+			<form action="/board/<%=rows.file%>/<%=rows.username%>/<%=rows.order%>/delete" method="post">
+			<input type="submit" class="btn btn-info" value="게시글삭제" />  
+			<% }else{ %>
+				<form action="/board/<%=rows.username%>/<%=rows.order%>/delete" method="post">
+				<input type="submit" class="btn btn-info" value="게시글삭제" /> 
+				<% } %>
+		</form>
+        </div> 
+        
 
 
   
- 
-	<table class="table table-default ">
-		   <thead>  
-			<tr>
-				<th colspan="3">
-					<div class="btn-group">
-						<a class="btn dropdown-toggle" data-toggle="dropdown" href="#" >
-						  category
-						  <span class="caret"></span>
-						</a>
-						<ul class="dropdown-menu">
-							<% for(i=0; i<rows2.length; i++){ %>
-							<li><a tabindex="-1" href="/board/category/<%= rows2[i].cat_num %>/1"><%= rows2[i].category %></a></li>
-							<% } %>
-						</ul>
-						</div>
-				</th>
-				<th></th>
-				<th><a class="btn btn-info" style="color: white; float: right;" href="/board/write">게시글작성</a></th>
-			</tr>
-			<tr>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-				<th>작성일</th>
-				<th>수정일</th>
-			</tr>
-		</thead>
-    
-		<tbody>
-			<% for(var i=(page*page_num)-page_num; i<(page*page_num); i++){
-                if(i>length){ i++; }
-                else{ %>
-            <tr>
-                <td><%=i+1%></td>
-                <td><a href='/board/detail/<%=i+1%>/<%=rows[i].order%>'><%=rows[i].title%></a></td>    
-				<td><%=rows[i].username%></td>
-				<td><%=rows[i].date%></td>
-				<td><%=rows[i].updat%></td>
-            </tr>
-          <% } 
-        }%> 
-        <tr>
-            <td colspan="5" style="text-align:center;">
-                <% for(var j=0; j<(rows.length/page_num); j++){ %>
-                    [<a href="/board/list/<%=j+1%>"><%=j+1%></a>]   
-                <% } %>
-			</td>
-        </tr>
-		</tbody>
-    </table>
+    <% for(var i=0;i<result.length;i++) { %>
+		<%if( result[i].com_no == com_no){ %>
+			<div class="write">
+				<p><strong>수정</strong></p>
+				<table>
+					<form action="/board/<%=result[i].id%>/<%=result[i].com_no%>/<%=board_no%>/<%=result[i].order%>/comment/update" method="post">
+					<tr>
+						<td><textarea name="comment" class="form-control" id="content" cols="50%" rows="2" > <%=result[i].com_content%> </textarea></td>
+						<td>  <input type="submit" class="btn btn-info" value="수정" /> </td>
+						<td></td>
+					</tr>
+				</form>
+			 </table>
+			</div>
+			<% } %>
+    <% } %>
 
-    <div class="search">
-        <form action="/board/search">
-        <input type="text" placeholder="Search.." name="search">
-		<button type="submit" class="btn btn-info">검색</button>
-		</form>
-	</div>  
-
-
-	
-
-    
 
 	<footer>
 		<ul class="list-inline text-center">
@@ -162,3 +152,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html> 
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+</body>

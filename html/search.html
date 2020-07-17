@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="Ko">
+<html lang="en">
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" >
-<title>검색결과</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<title>ICS-LAB</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-<link href="/../css/read.css" rel="stylesheet" type="text/css"/>
+<link href="../css/read.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-	
-	
 	<nav class="navbar navbar-fixed-top">
 		<div class="container-fluid">
 		  <div class="navbar-header">
@@ -18,48 +19,56 @@
 			  <span class="icon-bar"></span>
 			  <span class="icon-bar"></span>                        
 			</button>
-			<a class="navbar-brand" href="/">ICS LAB</a>
+			<a class="navbar-brand" href="/"><strong>ICS-LAB</strong> </a>
 		  </div>
 		  	<div class="collapse navbar-collapse" id="myNavbar">
 				<ul  style="margin-left:20%" class="nav navbar-nav navbar-right">
-				<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-			</ul>
+					<li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				</ul>
 			<ul class="nav navbar-nav ">
 			  <li class="dropdown">
 				<a class="dropdown-toggle" data-toggle="dropdown" >연구실 <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="/history.html">연구실연혁</a></li>
-				  <li><a href="/info.html">연구실소개</a></li>
+				  <li><a href="/award.html">수상내역</a></li>
 				  <li><a href="/location.html">연구실위치</a></li>
 				</ul>
 			  </li>
+			  <li><a href="/member.html">구성원</a></li>
+			  <li><a href="/project.html">프로젝트</a></li>
 			  <li class="dropdown">
-				<a class="dropdown-toggle" data-toggle="dropdown" >구성원 <span class="caret"></span></a>
+				<a class="dropdown-toggle" data-toggle="dropdown" >게시판 <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-				  <li><a href="/member.html">구성원소개</a></li>
-				  <li><a href="/photo.html">사진</a></li>
+				  <li><a href="/board/list">게시판</a></li>
+				  <li><a href="/schedule.html">일정</a></li>
 				</ul>
 			  </li>
-			  <li><a href="/project.html">프로젝트</a></li>
-			  <li><a href="/board/list">게시판</a></li>
 			</ul>
 			
 		  </div>
 		</div>
 	  </nav>
-  
-  <div class="title">
-    <h1>검색결과</h1>
-  </div>
+	
+	
+	
+
+	  <header class="masthead">
+		<img class="img" src="../img/home-bg.jpg" >
+		<div class="container">
+		  <div class="row">
+			  <div class="page-heading">
+				<div class="text" style="color: #ffffff;">검색결과</div>
+			  </div>
+		</div>
+	  </header>
  
-	<table class="table table-dark ">
+	<table class="table table-striped ">
 		   <thead>
 			<tr>
 				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
-				<th><input type="button" class="btn btn-info" value="게시글작성" style="float:right; font-size: 9px;" onClick="location.href = '/board/write'"></th>
+				<th><a class="btn btn-info" style="color: white; float: right;" href="/award.html">게시글작성</a></th>
 			</tr>
 			<tr>
 				<th>번호</th>
@@ -93,13 +102,38 @@
     
 
 	
-	<div class="page-footer">
-		<div class="footer-copyright text-center py-3">© 2018 Copyright: 
-		  <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
-		</div>
-	</div>
+	<footer>
+		<ul class="list-inline text-center">
+		  <li class="list-inline-item">
+			<a href="https://drive.google.com/drive/shared-with-me">
+			  <span class="fa-stack fa-lg">
+				<i class="fas fa-circle fa-stack-2x"></i>
+				<i class="fab fa-google-drive fa-stack-1x fa-inverse"></i>
+			  </span>
+			</a>
+		  </li>
+		  <li class="list-inline-item">
+			<a href="https://www.facebook.com/CUIT2740/?__tn__=%3C-R&eid=ARCejKjC6iPZeC22fXzy6UxCsvYnwaE5Q2nmFR4Kd-0BexDgIRmz8Etm6Ma1jZOhrPpbfQzWH49MysaN&hc_ref=ARTN6W6wgedmotTkTgbvSQJxujkLHTyNeDBdRB3rnhEYgameCCOfc1SHp_NU8GHhA_c&__xts__[0]=68.ARCpAeuzBVRVUiERY7hijPoxWB5_bdmqwXoT57fCP4aylmdeM1rjIUCDel7vBnXZPKa2Ku3jNHvfPh0zltg2Q7GEM2a0jd1VeiAr1OcZnBn-yhcuacEM5UjZ619k3-nrznaP7wbGlQShR29r-EzPLpKkbz2BKymdJnP2vk6mdT3WLBI4H9vlGpPGN-hz-M0IzIoIC98Y5jRzqBzeZsd-s8Vl_RQCEO61CQQI3_yynN4Pn8tRYLhX6H66s2o8eGnSnPULEyVth38o4yRYQEeILVMK6kuTI6blud1cEt1SC9pDU4U6szoVLl54DOr79JQhyqKPIyWdJHvKKRxgHw7S0Z2tS0dm">
+			  <span class="fa-stack fa-lg">
+				<i class="fas fa-circle fa-stack-2x" ></i>
+				<i class="fab fa-facebook-f fa-stack-1x fa-inverse" ></i>
+			  </span>
+			</a>
+		  </li>
+		  <li class="list-inline-item">
+			<a href="https://github.com/DCU-ICS-LAB">
+			  <span class="fa-stack fa-lg">
+				<i class="fas fa-circle fa-stack-2x"></i>
+				<i class="fab fa-github fa-stack-1x fa-inverse" ></i>
+			  </span>
+			</a>
+		  </li>
+		</ul>
+		<br/><br/>
+		<p class="copyright text-muted">Copyright &copy; Your Website 2020</p>
+</footer>
 
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </body>
 </html> 

@@ -49,7 +49,13 @@ header.masthead{
 
 .content > .post > .post-title{
     font-size: 30px;
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+.content > .post > .post-subtitle{
+  font-weight: bolder;
+  font-family: sans-serif;
 }
 
 .content > .post > .post-meta{
@@ -58,13 +64,7 @@ header.masthead{
     font-style: italic;
 }
 
-.content > .post > a{
-    font-size: 17px;
-    font-style: inherit;
-    width: 100px;
-    height: 40px;
-    border-top: 10px;
-}
+
 
 
 
