@@ -45,16 +45,27 @@ router.post("/login",function(req,res){
                 global.auth=req.session.admin;
                 console.log(id);
                 console.log(req.session);
+<<<<<<< HEAD
                  res.redirect('/board/list');
+=======
+                 res.redirect('/');
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
             }else{
                 res.send('<script>alert("아이디 또는 비밀번호가 잘못되었습니다.");location.href="/"</script>');
             }
             res.end();
         });
      }else{
+<<<<<<< HEAD
             res.send('<script>alert("입력해주세요.");location.href="/"</script>')
         }
 
+=======
+            res.send('<script>alert("입력해주세요.");location.href="/cite.html"</script>')
+        }
+
+
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
        
 
 

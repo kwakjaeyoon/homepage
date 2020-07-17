@@ -9,6 +9,7 @@
 }
 
 
+<<<<<<< HEAD
 header.masthead{
     width:100%;
     height:600px;
@@ -37,6 +38,8 @@ header.masthead{
   }
 
 
+=======
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
 
 .table{
     width:60%;
@@ -51,11 +54,21 @@ header.masthead{
 
 .btn-group{
     width: 60%;
+<<<<<<< HEAD
+=======
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.search {
+    width:60%;
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
     margin-left:auto;
     margin-right:auto;
 }
 
 
+<<<<<<< HEAD
 
 .search {
     width:60%;
@@ -64,6 +77,8 @@ header.masthead{
 }
 
 
+=======
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
 .search input[type=text]{
     width:30%;
     margin-left:30%;

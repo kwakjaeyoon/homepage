@@ -26,8 +26,13 @@ router.use('/',session({
 
 
 
+<<<<<<< HEAD
 router.get("/admin_log.html",function(req,res){
     var main=fs.readFileSync('html/admin_log.html','utf8');
+=======
+router.get("/admin.html",function(req,res){
+    var main=fs.readFileSync('html/admin.html','utf8');
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
     res.send(main);
     console.log("admin page");
 });
@@ -48,6 +53,7 @@ router.get("/admin_log.html",function(req,res){
                 global.auth=req.session.admin;
                 console.log(id);
                 console.log(req.session);
+<<<<<<< HEAD
                  res.redirect('/admin.html');
             }
         }else{
@@ -55,16 +61,30 @@ router.get("/admin_log.html",function(req,res){
         }}); 
      }else{
             res.send('<script>alert("입력해주세요.");location.href="/"</script>')
+=======
+                 res.redirect('/');
+            }
+        }else{
+        res.send('<script>alert("관리자 권한이 없는 계정입니다.");location.href="/cite.html"</script>');
+        }}); 
+     }else{
+            res.send('<script>alert("입력해주세요.");location.href="/cite.html"</script>')
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
         }
     }); 
 
         router.get("/logout",function(req,res){
             req.session.destroy();
+<<<<<<< HEAD
             res.send('<script>alert("로그아웃 되었습니다.");location.href="/l"</script>')
+=======
+            res.send('<script>alert("로그아웃 되었습니다.");location.href="/cite.html"</script>')
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
              console.log("logout success");
              
         });
 
+<<<<<<< HEAD
         router.get('/admin.html',function(req,res,next){
             if(!req.session.name && req.session.admin!="admin"){
                 console.log("접속실패");
@@ -221,6 +241,8 @@ router.get("/admin_log.html",function(req,res){
             }
     });
 
+=======
+>>>>>>> acffc25a6cd651f688d6157c9d192cd7304c7239
 
  
 
